@@ -10,7 +10,8 @@ namespace Console2DGame
     {
         static void Main(string[] args)
         {
-
+            MainMenu menu = new MainMenu();
+            menu.ShowMainMenu();
         }
     }
 }
