@@ -36,10 +36,14 @@ namespace Console2DGame
 
                 PressedKey = Console.ReadKey(true); //when true => character wont show in console
 
-                if (PressedKey.Key == ConsoleKey.DownArrow && selectedItem > 2 )
+                if (PressedKey.Key == ConsoleKey.DownArrow && selectedItem > 2)
                     selectedItem++;
-                else if (PressedKey.Key == ConsoleKey.UpArrow && selectedItem < 0 )
+
+                else if (PressedKey.Key == ConsoleKey.UpArrow && selectedItem < 0)
                     selectedItem--;
+
+                else if (PressedKey.Key == ConsoleKey.Enter)
+                    selectionFinished = true;
             }
 
             return selectedItem;
