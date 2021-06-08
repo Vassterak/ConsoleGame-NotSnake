@@ -35,10 +35,10 @@ namespace Console2DGame
             {
                 if (value >= 1 && value < mapWidth - 1)
                 {
-                    if (map[value, y] == obstacle) //cannot move if there is an obstacle
+                    if (map[value, y] == obstacle || map[value, y] == exit && numberOfPoints != 0) //cannot move if there is an obstacle
                         return;
 
-                    map[x, y] = obstacle; //if there is not an obstacle then you can set the position tu obstacle
+                    map[x, y] = obstacle; //if there is not an obstacle then you can set the position to obstacle
                     x = value; //set x the new value
                 }
             }
@@ -52,10 +52,10 @@ namespace Console2DGame
             {
                 if (value >= 1 && value < mapHeight - 1)
                 {
-                    if (map[x, value] == obstacle) //cannot move if there is an obstacle
+                    if (map[x, value] == obstacle || map[x, value] == exit && numberOfPoints != 0) //cannot move if there is an obstacle
                         return;
 
-                    map[x, y] = obstacle; //if there is not an obstacle then you can set the position tu obstacle
+                    map[x, y] = obstacle; //if there is not an obstacle then you can set the position to obstacle
                     y = value; //set x the new value
                 }
             }
@@ -156,19 +156,19 @@ namespace Console2DGame
             GameInfoUpdate();
         }
 
-        private void GameInfoUpdate() //how many points are left
+        private void GameInfoUpdate() //how many points are left + checking if player is eligible to finish game
         {
-            if (map[x,y] == point)
+            if (map[x,y] == point) //if point is picked up
             {
                 map[x, y] = 0;
                 numberOfPoints--;
             }
-            else if (map[x, y] == exit && numberOfPoints == 0)
+            else if (map[x, y] == exit && numberOfPoints == 0) //When you enter exit and all points are collected
             {
                 gameState = GameState.Win;
             }
 
-            if (map[x - 1, y] == obstacle && map[x + 1, y] == obstacle && map[x, y - 1] == obstacle && map[x, y + 1] == obstacle)
+            if (map[x - 1, y] == obstacle && map[x + 1, y] == obstacle && map[x, y - 1] == obstacle && map[x, y + 1] == obstacle) //check if you are able to move
                 gameState = GameState.Defeat;
 
             Console.SetCursorPosition(0, mapHeight + 1);
@@ -182,7 +182,7 @@ namespace Console2DGame
             Console.WriteLine("Pres ESC to leave the game and enter the menu.");
         }
 
-        public void PlayerUpdate()
+        public void PlayerUpdate() //Updating path behind player
         {
             Console.SetCursorPosition(LastX, LastY);
             Console.BackgroundColor = ConsoleColor.White;
@@ -197,13 +197,13 @@ namespace Console2DGame
             LastY = y;
         }
 
-        private void MapRender()
+        private void MapRender() //Initial rendering, it's called only once.
         {
             for (int x = 0; x < mapWidth; x++)
             {
                 for (int y = 0; y < mapHeight; y++)
                 {
-                    if (map[x,y] == obstacle)
+                    if (map[x,y] == obstacle) //obstacles (walls)
                     {
                         Console.SetCursorPosition(x, y);
                         Console.BackgroundColor = ConsoleColor.DarkGray;
@@ -227,7 +227,5 @@ namespace Console2DGame
                 }
             }
         }
-
-
     }
 }

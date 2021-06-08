@@ -54,7 +54,6 @@ namespace Console2DGame
                                 break;
                         }
                         Console.ReadKey();
-
                         break;
 
                     case howToPlay:
@@ -73,11 +72,7 @@ namespace Console2DGame
                     case end:
                         gameContinues = false;
                         break;
-
-                    default:
-                        break;
                 }
-
             }
         }
     }
