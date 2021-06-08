@@ -8,7 +8,7 @@ namespace Console2DGame
 {
     class MainMenu
     {
-        public int ShowMainMenu()
+        public static int ShowMainMenu()
         {
             int selectedItem = 0;
             bool selectionFinished = false;
@@ -45,8 +45,17 @@ namespace Console2DGame
                 else if (PressedKey.Key == ConsoleKey.Enter)
                     selectionFinished = true;
             }
-
             return selectedItem;
+        }
+
+        public static void Instructions()
+        {
+            Console.WriteLine("Use arrows on keyboad to move around.");
+            Console.WriteLine("Goal of this game is to take all green points and get to the door.");
+            Console.WriteLine("But you need to be careful because you can't return your steps.");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Press any key to continue.");
+            Console.ResetColor();
         }
     }
 }
