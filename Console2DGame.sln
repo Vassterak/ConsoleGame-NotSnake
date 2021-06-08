@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console2DGame", "Console2DGame.csproj", "{F12F0911-5D5F-4366-B8C7-4087D0BDE3AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F12F0911-5D5F-4366-B8C7-4087D0BDE3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12F0911-5D5F-4366-B8C7-4087D0BDE3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12F0911-5D5F-4366-B8C7-4087D0BDE3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12F0911-5D5F-4366-B8C7-4087D0BDE3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {648B3D56-D011-423E-8BCF-B76D47B1C346}
+	EndGlobalSection
+EndGlobal
