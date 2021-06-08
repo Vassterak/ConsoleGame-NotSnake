@@ -12,8 +12,9 @@ namespace Console2DGame
         {
             int selectedItem = 0;
             bool selectionFinished = false;
-            string[] itemsOfList = new string[3];
+            ConsoleKeyInfo PressedKey;
 
+            string[] itemsOfList = new string[3];
             itemsOfList[0] = "New Game";
             itemsOfList[1] = "How to play";
             itemsOfList[2] = "End";
@@ -32,7 +33,16 @@ namespace Console2DGame
                     Console.WriteLine(itemsOfList[i]);
                     Console.ResetColor();
                 }
+
+                PressedKey = Console.ReadKey(true); //when true => character wont show in console
+
+                if (PressedKey.Key == ConsoleKey.DownArrow && selectedItem > 2 )
+                    selectedItem++;
+                else if (PressedKey.Key == ConsoleKey.UpArrow && selectedItem < 0 )
+                    selectedItem--;
             }
+
+            return selectedItem;
         }
     }
 }
